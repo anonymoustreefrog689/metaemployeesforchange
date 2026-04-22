@@ -3,13 +3,13 @@ import ArticleTimeline from "@/components/ArticleTimeline";
 import { ARTICLES, TAGS } from "@/lib/articles";
 
 export const metadata = {
-  title: "Ice Out Meta — Meta Employees for Change",
-  description: "Meta is doing business with ICE. We work there. Here's what we know.",
+  title: "No Hateful Conduct — Meta Employees for Change",
+  description: "How Meta's policy changes are endangering LGBTQ+ communities.",
 };
 
-export default function IceOutMeta() {
-  const articles = ARTICLES.filter((a) => a.tags.includes("iceoutmeta"));
-  const tag = TAGS.iceoutmeta;
+export default function LGBT() {
+  const articles = ARTICLES.filter((a) => a.tags.includes("lgbt"));
+  const tag = TAGS.lgbt;
 
   return (
     <main className="min-h-screen bg-white text-black">
@@ -18,16 +18,14 @@ export default function IceOutMeta() {
       <div className="max-w-5xl mx-auto px-6">
         <section className="py-12 border-b border-black/10">
           <p className="font-mono text-xs uppercase tracking-widest mb-4" style={{ color: tag.color }}>
-            Campaign — Ongoing
+            Issue — Ongoing
           </p>
           <h1 className="font-serif font-black text-6xl text-black leading-tight mb-6">
-            Ice Out Meta
+            No Hateful Conduct
           </h1>
           <p className="text-lg text-black/60 max-w-2xl leading-relaxed">
-            Meta is providing tools and infrastructure to ICE. We are employees
-            of this company, and we are done pretending this is acceptable. This
-            page exists to document what is happening and to make clear that
-            not everyone at Meta is complicit.
+            Meta's policy rollbacks have created direct safety risks for LGBTQ+
+            communities. This page documents how those changes are playing out.
           </p>
         </section>
 
@@ -36,19 +34,19 @@ export default function IceOutMeta() {
             Petition
           </p>
           <h2 className="font-serif font-black text-3xl text-black leading-tight mb-3">
-            Meta workers demand transparency and safety from ICE
+            Demand Meta restore its hateful conduct policy
           </h2>
           <p className="text-base text-black/60 max-w-2xl leading-relaxed mb-6">
-            Workers at Meta campuses should not have to fear for their safety.
-            Sign the petition demanding Meta take a public stand against ICE
-            operations on and around its campuses, and protect the workers who
-            keep them running.
+            Meta's January 2025 policy changes allow users to target LGBTQ+
+            people with slurs and harassment. Sign the petition demanding Meta
+            reinstate meaningful protections against hateful conduct.
           </p>
           <a
-            href="https://tally.so/r/7RWNyL"
+            href="https://tinyurl.com/NoHatefulConduct"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-[#e63329] text-white font-mono text-xs uppercase tracking-widest px-6 py-3 hover:bg-black transition-colors"
+            className="inline-block text-white font-mono text-xs uppercase tracking-widest px-6 py-3 hover:bg-black transition-colors"
+            style={{ backgroundColor: tag.color }}
           >
             Sign the petition →
           </a>

@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Nav from "@/components/Nav";
+import { ARTICLES as INITIAL_CARDS, TAGS, type CardData } from "@/lib/articles";
 
 function seededRandom(seed: number) {
   let s = (seed * 9301 + 49297) % 233280;
@@ -26,42 +27,6 @@ function getTearClipPath(index: number): string {
   return `polygon(${pts.join(", ")})`;
 }
 
-type Tag = { label: string; slug: string; color: string };
-
-const TAGS: Record<string, Tag> = {
-  iceoutmeta: { label: "Ice Out Meta", slug: "/iceoutmeta", color: "bg-[#e63329]" },
-  lgbt: { label: "LGBT", slug: "/iceoutmeta", color: "bg-[#6d28d9]" },
-};
-
-type CardData = {
-  outlet: string;
-  date: string;
-  title: string;
-  url: string;
-  description: string | null;
-  image: string | null;
-  tags: string[];
-  x: number;
-  y: number;
-  rot: number;
-};
-
-const INITIAL_CARDS: CardData[] = [
-  { outlet: "Wired", date: "2025", title: "How Meta Cafeteria Workers Rallied to Take on ICE", description: null, url: "https://www.wired.com/story/how-meta-cafeteria-workers-rallied-to-take-on-ice/", image: null, tags: ["iceoutmeta"], x: 20, y: 50, rot: -1.5 },
-  { outlet: "Axios", date: "2026-01-15", title: "ICE Raids Meta Campus Amid Trump's AI Immigration Push", description: null, url: "https://www.axios.com/2026/01/15/ice-meta-ai-immigration-raid-trump", image: null, tags: ["iceoutmeta"], x: 310, y: 30, rot: 2 },
-  { outlet: "Bloomberg", date: "2026-01-15", title: "Immigration Officers Descend on Meta Data Center, Arrest Drivers", description: null, url: "https://www.bloomberg.com/news/articles/2026-01-15/immigration-officers-descend-on-meta-data-center-arrest-drivers", image: null, tags: ["iceoutmeta"], x: 610, y: 50, rot: -2 },
-  { outlet: "Human Rights Campaign", date: "2025-01-15", title: "Meta's New Policies: How They Endanger LGBTQ+ Communities", description: "Meta's January 2025 policy changes—ending fact-checking, reducing moderation, and permitting anti-LGBTQ+ rhetoric—create significant safety risks for LGBTQ+ communities.", url: "https://www.hrc.org/news/metas-new-policies-how-they-endanger-lgbtq-communities-and-our-tips-for-staying-safe-online", image: null, tags: ["lgbt"], x: 840, y: 35, rot: 1.5 },
-  { outlet: "GoFundMe", date: "2026-02-17", title: "Help Meta Workers Seeking Asylum and Facing Deportation", description: "Meta workers facing deportation need legal fees for filings and lawyers.", url: "https://www.gofundme.com/f/help-meta-workers-seeking-asylum-and-facing-deportation", image: "https://images.gofundme.com/gSR1bNw4RQcxt6802oydvKVZMAA=/1200x900/https://d2g8igdw686xgo.cloudfront.net/100155677_1771353690199620_r.png", tags: ["iceoutmeta"], x: 15, y: 310, rot: 1.5 },
-  { outlet: "Ken Klippenstein", date: "2026-04-20", title: "Exclusive: ICE Glasses", description: "DHS is developing smart glasses with real-time biometric identification to identify individuals on American streets.", url: "https://www.kenklippenstein.com/p/exclusive-ice-glasses", image: "https://substackcdn.com/image/fetch/$s_!13bS!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6567dfc8-786e-4128-b1b4-ddb3e71045e7_2000x1401.png", tags: ["iceoutmeta"], x: 330, y: 280, rot: -1.5 },
-  { outlet: "404 Media", date: "2025-12-09", title: "Border Patrol Agent Recorded Raid with Meta's Ray-Ban Smart Glasses", description: "A Border Patrol agent wore Meta's Ray-Ban smart glasses during an immigration raid in Charlotte, NC, violating CBP's ban on personal recording devices.", url: "https://www.404media.co/border-patrol-agent-recorded-raid-with-metas-ray-ban-smart-glasses/", image: null, tags: ["iceoutmeta"], x: 650, y: 300, rot: 2.5 },
-  { outlet: "404 Media", date: "2025-01-10", title: "Meta Deletes Trans and Nonbinary Messenger Themes", description: "Meta deleted trans and nonbinary Messenger themes as policy changes allowed users to declare LGBTQ+ people 'mentally ill.'", url: "https://www.404media.co/meta-deletes-trans-and-nonbinary-messenger-themes/", image: null, tags: ["lgbt"], x: 855, y: 285, rot: -2 },
-  { outlet: "404 Media", date: "2025-08-13", title: "Podcast: Why Are DHS Agents Wearing Meta Ray-Bans?", description: "Examining DHS agents' use of Meta Ray-Ban smart glasses and federal agencies' expanding access to surveillance systems.", url: "https://www.404media.co/podcast-why-are-dhs-agents-wearing-meta-ray-bans/", image: null, tags: ["iceoutmeta"], x: 60, y: 590, rot: -2.5 },
-  { outlet: "Bloomberg", date: "2026-01-28", title: "DHS Tried Novel Argument to Compel Meta to Provide User Data", description: null, url: "https://www.bloomberg.com/news/newsletters/2026-01-28/dhs-tried-novel-argument-to-compel-meta-to-provide-user-data", image: null, tags: ["iceoutmeta"], x: 320, y: 560, rot: 1 },
-  { outlet: "The New York Times", date: "2026-02-13", title: "DHS Targets Anti-ICE Posts on Social Media", description: null, url: "https://www.nytimes.com/2026/02/13/technology/dhs-anti-ice-social-media.html", image: null, tags: ["iceoutmeta"], x: 600, y: 575, rot: -1.5 },
-  { outlet: "404 Media", date: "2025-06-16", title: "Meta Users Feel Less Safe Since It Weakened 'Hateful Conduct' Policy, Survey Finds", description: "A survey of 7,000 Meta users from protected groups found that over 90% feel less safe since the company weakened its hateful conduct policy.", url: "https://www.404media.co/meta-users-feel-less-safe-since-it-weakened-hateful-conduct-policy-survey-finds/", image: null, tags: ["lgbt"], x: 845, y: 560, rot: 2 },
-  { outlet: "The Independent", date: "2026", title: "Immigration Officers Spotted Using Meta AI Smart Glasses During Operations", description: null, url: "https://www.independent.co.uk/news/world/americas/us-politics/immigration-officers-meta-ai-glasses-b2937382.html", image: null, tags: ["iceoutmeta"], x: 140, y: 840, rot: -1 },
-  { outlet: "Wired", date: "2026", title: "Meta Is Blocking Links to ICE Lists on Facebook, Instagram, and Threads", description: null, url: "https://www.wired.com/story/meta-is-blocking-links-to-ice-list-on-facebook-instagram-and-threads/", image: null, tags: ["iceoutmeta"], x: 490, y: 820, rot: 1.5 },
-];
 
 type DragState = {
   url: string;
@@ -141,10 +106,14 @@ export default function Home() {
     <main className="min-h-screen bg-white text-black">
       <Nav />
 
-      <div className="bg-[#ede8de] relative overflow-x-auto select-none" style={{ minHeight: "1080px" }}>
-        <p className="absolute top-5 left-6 font-sans font-bold text-2xl text-black pointer-events-none">
-          Bulletin board material
-        </p>
+      <div className="bg-[#ede8de] relative overflow-x-auto select-none" style={{ minHeight: "1820px" }}>
+        <div className="px-6 pt-5 pointer-events-none">
+          <div className="max-w-5xl mx-auto">
+            <p className="font-sans font-bold text-2xl text-black">
+              Bulletin board material
+            </p>
+          </div>
+        </div>
         {INITIAL_CARDS.map((card, index) => {
           const pos = positions[card.url];
           const isActive = activeUrl === card.url;
@@ -215,7 +184,8 @@ export default function Home() {
                       return (
                         <span
                           key={tagKey}
-                          className={`font-mono text-[10px] font-medium text-white ${tag.color} px-1.5 py-0.5 uppercase tracking-widest pointer-events-none`}
+                          className="font-mono text-[10px] font-medium text-white px-1.5 py-0.5 uppercase tracking-widest pointer-events-none"
+                          style={{ backgroundColor: tag.color }}
                         >
                           {tag.label}
                         </span>
@@ -264,7 +234,8 @@ export default function Home() {
                     key={tagKey}
                     href={tag.slug}
                     onClick={() => setSelectedCard(null)}
-                    className={`font-mono text-xs font-medium text-white ${tag.color} px-2 py-0.5 hover:bg-black transition-colors uppercase tracking-widest`}
+                    className="font-mono text-xs font-medium text-white px-2 py-0.5 hover:opacity-80 transition-opacity uppercase tracking-widest"
+                    style={{ backgroundColor: tag.color }}
                   >
                     {tag.label}
                   </Link>

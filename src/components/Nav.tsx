@@ -6,7 +6,7 @@ export default function Nav() {
       <div className="bg-[#e63329] px-6 py-5">
         <div className="max-w-5xl mx-auto flex items-baseline justify-between">
           <Link href="/" className="block">
-            <h1 className="font-serif font-black text-3xl text-white leading-none tracking-tight hover:opacity-80 transition-opacity">
+            <h1 className="font-serif font-black text-3xl text-white leading-none tracking-normal hover:opacity-80 transition-opacity">
               Meta Employees for Change
             </h1>
           </Link>
