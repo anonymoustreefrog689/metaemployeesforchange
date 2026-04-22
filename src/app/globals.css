@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --font-serif: var(--font-serif);
+}
+
+.bulletin-card {
+  position: absolute;
+  width: 230px;
+  background: #fffef9;
+  box-shadow: 2px 4px 12px rgba(0,0,0,0.12);
+  border: 1px solid rgba(0,0,0,0.07);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  z-index: 1;
+}
+
+.bulletin-card:hover {
+  transform: rotate(0deg) scale(1.04) !important;
+  box-shadow: 6px 12px 32px rgba(0,0,0,0.2);
+  z-index: 20;
+}
