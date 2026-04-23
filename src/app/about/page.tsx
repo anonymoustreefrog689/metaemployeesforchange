@@ -1,7 +1,7 @@
 import Nav from "@/components/Nav";
 
 export const metadata = {
-  title: "About — Meta Employees for Change",
+  title: "About — Meta Workers for Change",
   description: "Who we are.",
 };
 

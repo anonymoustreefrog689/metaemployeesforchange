@@ -1,5 +1,5 @@
 import Image from "next/image";
-import type { CardData } from "@/lib/articles";
+import { formatDate, type CardData } from "@/lib/articles";
 
 export default function ArticleTimeline({ articles }: { articles: CardData[] }) {
   return (
@@ -35,7 +35,7 @@ export default function ArticleTimeline({ articles }: { articles: CardData[] }) 
               </p>
             )}
             <p className="font-mono text-xs text-black/30 uppercase tracking-widest mt-1">
-              {article.outlet} · {article.date}
+              {article.outlet} · {formatDate(article.date)}
             </p>
           </div>
         </a>

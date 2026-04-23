@@ -3,7 +3,7 @@ import ArticleTimeline from "@/components/ArticleTimeline";
 import { ARTICLES, TAGS } from "@/lib/articles";
 
 export const metadata = {
-  title: "No Hateful Conduct — Meta Employees for Change",
+  title: "No Hateful Conduct — Meta Workers for Change",
   description: "How Meta's policy changes are endangering LGBTQ+ communities.",
 };
 
@@ -45,8 +45,7 @@ export default function LGBT() {
             href="https://tinyurl.com/NoHatefulConduct"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block text-white font-mono text-xs uppercase tracking-widest px-6 py-3 hover:bg-black transition-colors"
-            style={{ backgroundColor: tag.color }}
+            className="block max-w-2xl text-center bg-black text-white font-mono text-sm uppercase tracking-widest px-6 py-5 hover:bg-[#e63329] transition-colors"
           >
             Sign the petition →
           </a>
@@ -54,7 +53,7 @@ export default function LGBT() {
 
         <section className="py-10">
           <h2 className="font-mono text-xs uppercase tracking-widest text-black/30 mb-8">
-            Coverage — {articles.length} articles
+            Coverage
           </h2>
           <ArticleTimeline articles={articles} />
         </section>

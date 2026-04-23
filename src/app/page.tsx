@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Nav from "@/components/Nav";
-import { ARTICLES as INITIAL_CARDS, TAGS, type CardData } from "@/lib/articles";
+import { ARTICLES as INITIAL_CARDS, TAGS, formatDate, type CardData } from "@/lib/articles";
 
 function seededRandom(seed: number) {
   let s = (seed * 9301 + 49297) % 233280;
@@ -106,15 +106,9 @@ export default function Home() {
     <main className="min-h-screen bg-white text-black">
       <Nav />
 
-      <div className="bg-[#ede8de] relative overflow-x-auto select-none" style={{ minHeight: "1820px" }}>
-        <div className="px-6 pt-5 pointer-events-none">
-          <div className="max-w-5xl mx-auto">
-            <p className="font-sans font-bold text-2xl text-black">
-              Bulletin board material
-            </p>
-          </div>
-        </div>
-        {INITIAL_CARDS.map((card, index) => {
+      <div className="bg-[#ede8de] overflow-x-auto select-none" style={{ minHeight: "2200px" }}>
+        <div className="max-w-5xl mx-auto relative" style={{ minHeight: "2200px" }}>
+{INITIAL_CARDS.map((card, index) => {
           const pos = positions[card.url];
           const isActive = activeUrl === card.url;
           return (
@@ -132,11 +126,6 @@ export default function Home() {
                 cursor: isActive ? "grabbing" : "grab",
               }}
             >
-              {/* tape — outside the clipped card so it stays visible */}
-              <div
-                className="absolute -top-3 left-1/2 -translate-x-1/2 h-6 w-10 opacity-70"
-                style={{ background: "#d4c99a" }}
-              />
               {/* card body — clipped to torn shape, shadow follows the tear */}
               <div
                 style={{
@@ -175,7 +164,7 @@ export default function Home() {
                     </span>
                     <span className="font-mono text-[10px] text-black/30 pointer-events-none">·</span>
                     <span className="font-mono text-[10px] text-black/30 pointer-events-none">
-                      {card.date}
+                      {formatDate(card.date)}
                     </span>
                   </div>
                   <div className="flex gap-1.5 flex-wrap">
@@ -194,9 +183,15 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+              {/* tape — rendered after card body so it paints on top */}
+              <div
+                className="absolute -top-3 left-1/2 -translate-x-1/2 h-5 w-4 opacity-75"
+                style={{ background: "#f0d535" }}
+              />
             </div>
           );
         })}
+        </div>
       </div>
       {selectedCard && (
         <div
@@ -254,7 +249,7 @@ export default function Home() {
             )}
 
             <p className="font-mono text-xs text-black/30 uppercase tracking-widest mb-6">
-              {selectedCard.outlet} · {selectedCard.date}
+              {selectedCard.outlet} · {formatDate(selectedCard.date)}
             </p>
 
             <a

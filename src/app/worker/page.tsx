@@ -3,7 +3,7 @@ import ArticleTimeline from "@/components/ArticleTimeline";
 import { ARTICLES, TAGS } from "@/lib/articles";
 
 export const metadata = {
-  title: "Worker Impact — Meta Employees for Change",
+  title: "Worker Impact — Meta Workers for Change",
   description: "How Meta's cooperation with ICE has affected workers on campus.",
 };
 
@@ -32,7 +32,7 @@ export default function Worker() {
 
         <section className="py-10">
           <h2 className="font-mono text-xs uppercase tracking-widest text-black/30 mb-8">
-            Coverage — {articles.length} articles
+            Coverage
           </h2>
           <ArticleTimeline articles={articles} />
         </section>

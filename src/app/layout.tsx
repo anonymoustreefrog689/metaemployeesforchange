@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Sans, IBM_Plex_Mono, Barlow_Condensed } from "next/font/google";
 import "./globals.css";
+import Footer from "@/components/Footer";
 
 const ibmPlexSans = IBM_Plex_Sans({
   variable: "--font-sans",
@@ -21,7 +22,7 @@ const barlowCondensed = Barlow_Condensed({
 });
 
 export const metadata: Metadata = {
-  title: "Meta Employees for Change",
+  title: "Meta Workers for Change",
   description: "Meta employees holding their employer accountable.",
 };
 
@@ -36,7 +37,10 @@ export default function RootLayout({
       className={`${ibmPlexSans.variable} ${ibmPlexMono.variable} ${barlowCondensed.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col bg-white text-black">{children}</body>
+      <body className="min-h-full flex flex-col bg-white text-black">
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
