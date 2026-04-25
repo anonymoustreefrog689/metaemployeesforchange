@@ -22,7 +22,7 @@ export default function AI() {
             AI + Job Security
           </h1>
           <p className="font-sans text-base text-black/60 leading-relaxed max-w-2xl">
-            Meta leadership has staked the company's future on the promise and productivity gains of AI but it's clear that these wins aren't being passed down to the worker. Meta employees have faced increased surveillance, mounting layoffs, and an overall intensification of work as we work tirelessly to build the tech stack that management hopes will replace us.
+            Meta leadership has staked the company's future on the promise and productivity gains of AI, but it's clear that these wins aren't being passed down to the worker. Meta employees have faced increased surveillance, mounting layoffs, and an overall intensification of work as we're pushed to build the tech stack that management hopes will replace us.
           </p>
         </section>
 
