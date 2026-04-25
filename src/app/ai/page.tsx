@@ -1,6 +1,6 @@
 import Nav from "@/components/Nav";
 import ArticleTimeline from "@/components/ArticleTimeline";
-import { ARTICLES, TAGS } from "@/lib/articles";
+import { ARTICLES } from "@/lib/articles";
 
 const REUTERS_MCI_URL = "https://www.reuters.com/sustainability/boards-policy-regulation/meta-start-capturing-employee-mouse-movements-keystrokes-ai-training-data-2026-04-21/";
 
@@ -11,7 +11,6 @@ export const metadata = {
 
 export default function AI() {
   const articles = ARTICLES.filter((a) => a.tags.includes("ai"));
-  const tag = TAGS.ai;
 
   return (
     <main className="min-h-screen bg-white text-black">
@@ -19,12 +18,12 @@ export default function AI() {
 
       <div className="max-w-5xl mx-auto px-6">
         <section className="py-12 border-b border-black/10">
-          <p className="font-mono text-xs uppercase tracking-widest mb-4" style={{ color: tag.color }}>
-            Issue — Ongoing
-          </p>
           <h1 className="font-serif font-black text-4xl md:text-6xl text-black leading-tight mb-6">
             AI + Job Security
           </h1>
+          <p className="font-sans text-base text-black/60 leading-relaxed max-w-2xl">
+            Meta leadership has staked the company's future on the promise and productivity gains of AI but it's clear that these wins aren't being passed down to the worker. Meta employees have faced increased surveillance, mounting layoffs, and an overall intensification of work as we work tirelessly to build the tech stack that management hopes will replace us.
+          </p>
         </section>
 
         <section className="py-10 border-b border-black/10">

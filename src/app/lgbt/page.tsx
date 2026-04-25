@@ -1,6 +1,7 @@
+import Image from "next/image";
 import Nav from "@/components/Nav";
 import ArticleTimeline from "@/components/ArticleTimeline";
-import { ARTICLES, TAGS } from "@/lib/articles";
+import { ARTICLES } from "@/lib/articles";
 
 export const metadata = {
   title: "No Hateful Conduct — Meta Workers for Change",
@@ -9,7 +10,6 @@ export const metadata = {
 
 export default function LGBT() {
   const articles = ARTICLES.filter((a) => a.tags.includes("lgbt"));
-  const tag = TAGS.lgbt;
 
   return (
     <main className="min-h-screen bg-white text-black">
@@ -17,26 +17,34 @@ export default function LGBT() {
 
       <div className="max-w-5xl mx-auto px-6">
         <section className="py-12 border-b border-black/10">
-          <p className="font-mono text-xs uppercase tracking-widest mb-4" style={{ color: tag.color }}>
-            Issue — Ongoing
-          </p>
-          <h1 className="font-serif font-black text-4xl md:text-6xl text-black leading-tight mb-6">
-            No Hateful Conduct
+          <h1 className="font-serif font-black text-4xl md:text-6xl text-black leading-tight mb-8">
+            #NoHatefulConduct
           </h1>
+          <blockquote className="max-w-2xl">
+            <p className="font-serif text-lg leading-relaxed text-black/80 italic mb-4">
+              "On January 7, 2025, Meta CEO Mark Zuckerberg announced a complete overhaul of content policies across Meta platforms. These changes include the end of fact-checking, thinned-down moderation efforts, and a dismantled Hateful Conduct policy that expressly permits abuse against LGBTQ+ people while forbidding the same abuses against all other communities. In the following days, Meta has also announced the termination of its broader DEI efforts, further signaling an abdication from its commitment to inclusion."
+            </p>
+            <a
+              href="https://www.hrc.org/news/metas-new-policies-how-they-endanger-lgbtq-communities-and-our-tips-for-staying-safe-online"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-mono text-xs uppercase tracking-widest text-black/40 hover:text-black transition-colors"
+            >
+              Human Rights Campaign →
+            </a>
+          </blockquote>
         </section>
 
         <section className="py-10 border-b border-black/10">
-          <p className="font-mono text-xs uppercase tracking-widest text-black/30 mb-4">
-            Petition
-          </p>
-          <h2 className="font-serif font-black text-3xl text-black leading-tight mb-3">
-            Demand Meta restore its hateful conduct policy
-          </h2>
-          <p className="text-base text-black/60 max-w-2xl leading-relaxed mb-6">
-            Meta's January 2025 policy changes allow users to target LGBTQ+
-            people with slurs and harassment. Sign the petition demanding Meta
-            reinstate meaningful protections against hateful conduct.
-          </p>
+          <div className="max-w-2xl mb-10">
+            <Image
+              src="/nohatefulconduct.jpg"
+              alt="#NoHatefulConduct petition"
+              width={672}
+              height={0}
+              style={{ width: "100%", height: "auto" }}
+            />
+          </div>
           <a
             href="https://tinyurl.com/NoHatefulConduct"
             target="_blank"

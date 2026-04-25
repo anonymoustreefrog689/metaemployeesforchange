@@ -10,7 +10,7 @@ export const metadata = {
 
 export default function IceOutMeta() {
   const articles = ARTICLES.filter((a) => a.tags.includes("iceoutmeta"));
-  const featured = ARTICLES.find((a) => a.url === "https://www.axios.com/2026/01/15/ice-meta-ai-immigration-raid-trump")!;
+  const featured = ARTICLES.find((a) => a.url === "https://archive.is/2Q6yL")!;
   const tag = TAGS.iceoutmeta;
 
   return (
@@ -19,12 +19,12 @@ export default function IceOutMeta() {
 
       <div className="max-w-5xl mx-auto px-6">
         <section className="py-12 border-b border-black/10">
-          <p className="font-mono text-xs uppercase tracking-widest mb-4" style={{ color: tag.color }}>
-            Campaign — Ongoing
-          </p>
-          <h1 className="font-serif font-black text-4xl md:text-6xl text-black leading-tight mb-8">
+          <h1 className="font-serif font-black text-4xl md:text-6xl text-black leading-tight mb-6">
             Ice Out Meta
           </h1>
+          <p className="font-sans text-base text-black/60 max-w-2xl leading-relaxed mb-10">
+            Meta has been unclear in its relationship with Immigration and Customs Enforcement (ICE). All signs point towards the two organizations having a cooperative working relationship as Meta has blocked links to anti-ICE sites and refrained from commenting on an incident in which ICE raided a Meta data center in rural Louisiana, arresting two immigrant workers.
+          </p>
           <div className="max-w-2xl mb-10">
             <Image
               src="/iceoutmetaflyer.png"

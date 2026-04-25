@@ -13,7 +13,7 @@ const COL_GAP = 23;
 // Petitions span exactly 2 columns — no overlap possible
 const PETITION_W = CARD_W * 2 + COL_GAP; // 483px
 const ROW_GAP = 66;
-const CARD_H = 300; // estimated article card height
+const CARD_H = 250; // estimated article card height
 const BOARD_W = 1024; // max-w-5xl
 
 // ── Seeded RNG ────────────────────────────────────────────────────────────────
@@ -228,12 +228,7 @@ export default function Home() {
                       <p className="font-serif font-bold text-sm leading-snug text-black pointer-events-none">
                         {card.title}
                       </p>
-                      {card.description && (
-                        <p className="font-sans text-xs leading-snug text-black/50 pointer-events-none">
-                          {card.description}
-                        </p>
-                      )}
-                      <div className="flex items-center gap-1.5 flex-wrap mt-1">
+                      <div className="flex items-center gap-1.5 flex-wrap">
                         <span className="font-mono text-[10px] uppercase tracking-wider text-black/40 pointer-events-none">
                           {card.outlet}
                         </span>
@@ -270,16 +265,23 @@ export default function Home() {
         </div>
       </div>
 
-      {/* ── Mobile bulletin board ── */}
-      <div className="md:hidden bg-[#ede8de] px-3 py-8">
+      {/* ── Mobile CTA (top) ── */}
+      <div className="md:hidden bg-white py-12 px-6">
+        <h2 className="font-serif font-black text-3xl text-black leading-tight mb-6">
+          It doesn't have to be like this.
+        </h2>
         <a
           href="https://airtable.com/appzy3AxLJBSTbsHz/pagbcBniFMo6sp34j/form"
           target="_blank"
           rel="noopener noreferrer"
-          className="block text-center font-sans text-sm text-black underline underline-offset-4 mb-6"
+          className="font-sans text-sm text-blue-600 leading-relaxed hover:text-blue-800 transition-colors underline underline-offset-4"
         >
           Sign up to commit to making Meta a better place for all of us →
         </a>
+      </div>
+
+      {/* ── Mobile bulletin board ── */}
+      <div className="md:hidden bg-[#ede8de] px-3 py-8">
         <div className="grid grid-cols-2 gap-x-4 gap-y-6">
           {sortedForMobile.map((card, index) =>
             card.type === "petition" ? (
@@ -468,7 +470,7 @@ export default function Home() {
       )}
 
       {/* ── CTA / sign-up ── */}
-      <div className="bg-white py-16 md:py-24" style={{ scrollSnapAlign: "start" }}>
+      <div className="hidden md:block bg-white py-16 md:py-24" style={{ scrollSnapAlign: "start" }}>
         <div className="max-w-5xl mx-auto px-6 w-full">
           <h2 className="font-serif font-black text-3xl md:text-5xl text-black leading-tight mb-6">
             It doesn't have to be like this.
