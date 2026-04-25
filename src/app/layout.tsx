@@ -22,7 +22,6 @@ const barlowCondensed = Barlow_Condensed({
 
 export const metadata: Metadata = {
   title: "Meta Workers for Change",
-  description: "Meta employees holding their employer accountable.",
 };
 
 export default function RootLayout({
