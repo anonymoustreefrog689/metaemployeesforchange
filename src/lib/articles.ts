@@ -4,6 +4,8 @@ export const TAGS: Record<string, Tag> = {
   iceoutmeta: { label: "ICE OUT META", slug: "/iceoutmeta", color: "#e63329" },
   lgbt: { label: "#NoHatefulConduct", slug: "/lgbt", color: "#6d28d9" },
   ai: { label: "AI + Job Security", slug: "/ai", color: "#1d4ed8" },
+  worker: { label: "Worker Impact", slug: "/worker", color: "#b45309" },
+  user: { label: "User Impact", slug: "/user", color: "#0f766e" },
 };
 
 export function formatDate(date: string): string {
