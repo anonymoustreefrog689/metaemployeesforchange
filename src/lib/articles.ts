@@ -51,5 +51,5 @@ export const ARTICLES: CardData[] = [
   { outlet: "Wired", date: "2024-07-11", title: "How Watermelon Cupcakes Kicked Off an Internal Storm at Meta", description: "Arab and Muslim workers at Meta allege that its response to the crisis in Gaza is one-sided and out of hand. \"It makes me sick that I work for this company,\" says one employee.", url: "https://www.wired.com/story/meta-palestine-employees-watermelon-cupcakes-censorship/", image: "/wired-palestine.webp", tags: [] },
   // Petitions last so they render on top (highest z-index)
   { type: "petition", outlet: "Ice Out Meta", date: "2026-03-30", title: "Ice Out Meta — Sign the Petition", description: null, url: "https://tally.so/r/7RWNyL", image: "/iceoutmetaflyer.png", tags: ["iceoutmeta"] },
-  { type: "petition", outlet: "Meta Workers for Change", date: "2025-03-30", title: "#NoHatefulConduct — Sign the Petition", description: null, url: "https://tinyurl.com/NoHatefulConduct", image: "/nohatefulconduct.jpg", tags: ["lgbt"] },
+  { type: "petition", outlet: "Meta Workers for Change", date: "2025-01-12", title: "#NoHatefulConduct — Sign the Petition", description: null, url: "https://tinyurl.com/NoHatefulConduct", image: "/nohatefulconduct.jpg", tags: ["lgbt"] },
 ];

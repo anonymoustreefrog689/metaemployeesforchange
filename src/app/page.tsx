@@ -274,7 +274,7 @@ export default function Home() {
           href="https://airtable.com/appzy3AxLJBSTbsHz/pagbcBniFMo6sp34j/form"
           target="_blank"
           rel="noopener noreferrer"
-          className="font-sans text-sm text-blue-600 leading-relaxed hover:text-blue-800 transition-colors underline underline-offset-4"
+          className="font-sans text-sm text-black leading-relaxed hover:text-black/60 transition-colors underline underline-offset-4"
         >
           Sign up to commit to making Meta a better place for all of us →
         </a>
@@ -285,7 +285,11 @@ export default function Home() {
         <div className="grid grid-cols-2 gap-x-4 gap-y-6">
           {sortedForMobile.map((card, index) =>
             card.type === "petition" ? (
-              <div key={card.url} className="col-span-2">
+              <button
+                key={card.url}
+                className="col-span-2 cursor-pointer"
+                onClick={() => setSelectedCard(card)}
+              >
                 {card.image && (
                   <Image
                     src={card.image}
@@ -295,15 +299,7 @@ export default function Home() {
                     className="w-full h-auto shadow-md"
                   />
                 )}
-                <a
-                  href={card.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-3 block text-center bg-black text-white font-mono text-xs uppercase tracking-widest px-4 py-3"
-                >
-                  Sign the Petition →
-                </a>
-              </div>
+              </button>
             ) : (
               <div
                 key={card.url}
@@ -314,7 +310,7 @@ export default function Home() {
                   className="absolute -top-2 left-1/2 -translate-x-1/2 h-4 w-6 opacity-75 z-10"
                   style={{ background: "#f0d535" }}
                 />
-                <a href={card.url} target="_blank" rel="noopener noreferrer" className="block">
+                <button onClick={() => setSelectedCard(card)} className="block w-full text-left cursor-pointer">
                   <div
                     style={{
                       background: "#fffef9",
@@ -354,7 +350,7 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
-                </a>
+                </button>
               </div>
             )
           )}
@@ -470,7 +466,7 @@ export default function Home() {
       )}
 
       {/* ── CTA / sign-up ── */}
-      <div className="hidden md:block bg-white py-16 md:py-24" style={{ scrollSnapAlign: "start" }}>
+      <div className="hidden md:block bg-white py-16 md:py-24">
         <div className="max-w-5xl mx-auto px-6 w-full">
           <h2 className="font-serif font-black text-3xl md:text-5xl text-black leading-tight mb-6">
             It doesn't have to be like this.

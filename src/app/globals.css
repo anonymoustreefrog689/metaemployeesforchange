@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 html {
-  scroll-snap-type: y proximity;
+  background: white;
 }
 
 @theme inline {
