@@ -272,6 +272,14 @@ export default function Home() {
 
       {/* ── Mobile bulletin board ── */}
       <div className="md:hidden bg-[#ede8de] px-3 py-8">
+        <a
+          href="https://airtable.com/appzy3AxLJBSTbsHz/pagbcBniFMo6sp34j/form"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block text-center font-sans text-sm text-black underline underline-offset-4 mb-6"
+        >
+          Sign up to commit to making Meta a better place for all of us →
+        </a>
         <div className="grid grid-cols-2 gap-x-4 gap-y-6">
           {sortedForMobile.map((card, index) =>
             card.type === "petition" ? (
