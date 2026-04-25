@@ -180,7 +180,7 @@ export default function Home() {
                 style={{
                   position: "absolute",
                   left: `${pos.x}px`,
-                  top: `${pos.y + 68}px`,
+                  top: `${pos.y + 48}px`,
                   width: `${cardWidth}px`,
                   transform: isActive ? "rotate(0deg) scale(1.02)" : `rotate(${rot}deg)`,
                   transition: isActive ? "none" : "transform 0.2s ease",
@@ -364,15 +364,15 @@ export default function Home() {
           onClick={() => setSelectedCard(null)}
         >
           <div
-            className="relative bg-[#fffef9] max-w-2xl w-full mx-4 p-8 md:p-12 shadow-2xl overflow-y-auto"
+            className="relative bg-[#fffef9] max-w-2xl w-full mx-4 px-8 pt-12 pb-8 md:px-12 md:pt-10 md:pb-12 shadow-2xl overflow-y-auto"
             style={{ maxHeight: "90vh" }}
             onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={() => setSelectedCard(null)}
-              className="absolute top-4 right-4 font-mono text-xs text-black/30 hover:text-black transition-colors uppercase tracking-widest"
+              className="absolute top-3 right-4 font-mono text-4xl md:text-2xl text-black/30 hover:text-black transition-colors leading-none"
             >
-              Close ✕
+              ✕
             </button>
 
             {selectedCard.type === "petition" ? (
@@ -414,7 +414,7 @@ export default function Home() {
             ) : (
               <>
                 {selectedCard.image && (
-                  <div className="w-full h-56 md:h-72 overflow-hidden mb-6">
+                  <div className="w-full h-56 md:h-72 overflow-hidden mb-6 mt-2.5">
                     <Image
                       src={selectedCard.image}
                       alt={selectedCard.title}
@@ -455,7 +455,7 @@ export default function Home() {
                   href={selectedCard.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block bg-black text-white font-mono text-xs uppercase tracking-widest px-5 py-3 hover:bg-[#e63329] transition-colors"
+                  className="inline-block bg-black text-white font-mono text-xs uppercase tracking-widest px-5 py-3 hover:bg-[#e63329] transition-colors mb-1"
                 >
                   Read full article →
                 </a>
