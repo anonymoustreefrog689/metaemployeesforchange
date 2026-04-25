@@ -15,6 +15,15 @@ export default function About() {
           <h1 className="font-serif font-black text-5xl text-black leading-tight mb-8">
             About
           </h1>
+          <a
+            href="https://www.instagram.com/metaworkers4change/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 font-mono text-sm uppercase tracking-widest text-black/50 hover:text-black transition-colors"
+          >
+            <span>@metaworkers4change</span>
+            <span>→</span>
+          </a>
         </section>
       </div>
     </main>
