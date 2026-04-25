@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+html {
+  scroll-snap-type: y proximity;
+}
+
 @theme inline {
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);

@@ -2,9 +2,10 @@ import Image from "next/image";
 import { formatDate, type CardData } from "@/lib/articles";
 
 export default function ArticleTimeline({ articles }: { articles: CardData[] }) {
+  const items = articles.filter((a) => a.type !== "petition");
   return (
     <div className="divide-y divide-black/10">
-      {articles.map((article) => (
+      {items.map((article) => (
         <a
           key={article.url}
           href={article.url}

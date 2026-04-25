@@ -15,14 +15,6 @@ export default function About() {
           <h1 className="font-serif font-black text-5xl text-black leading-tight mb-8">
             About
           </h1>
-          <p className="text-lg text-black/60 max-w-2xl leading-relaxed mb-6">
-            We are current and former employees of Meta. We are not speaking on
-            behalf of the company — we are speaking despite it.
-          </p>
-          <p className="text-lg text-black/60 max-w-2xl leading-relaxed">
-            More information about who we are and how to contact us is coming
-            soon.
-          </p>
         </section>
       </div>
     </main>

@@ -22,12 +22,12 @@ export default function IceOutMeta() {
           <p className="font-mono text-xs uppercase tracking-widest mb-4" style={{ color: tag.color }}>
             Campaign — Ongoing
           </p>
-          <h1 className="font-serif font-black text-6xl text-black leading-tight mb-8">
+          <h1 className="font-serif font-black text-4xl md:text-6xl text-black leading-tight mb-8">
             Ice Out Meta
           </h1>
           <div className="max-w-2xl mb-10">
             <Image
-              src="/flyer.png"
+              src="/iceoutmetaflyer.png"
               alt="Ice Out Meta flyer"
               width={672}
               height={0}

@@ -20,13 +20,9 @@ export default function LGBT() {
           <p className="font-mono text-xs uppercase tracking-widest mb-4" style={{ color: tag.color }}>
             Issue — Ongoing
           </p>
-          <h1 className="font-serif font-black text-6xl text-black leading-tight mb-6">
+          <h1 className="font-serif font-black text-4xl md:text-6xl text-black leading-tight mb-6">
             No Hateful Conduct
           </h1>
-          <p className="text-lg text-black/60 max-w-2xl leading-relaxed">
-            Meta's policy rollbacks have created direct safety risks for LGBTQ+
-            communities. This page documents how those changes are playing out.
-          </p>
         </section>
 
         <section className="py-10 border-b border-black/10">
