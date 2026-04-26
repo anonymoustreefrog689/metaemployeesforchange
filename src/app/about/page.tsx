@@ -22,7 +22,7 @@ export default function About() {
             href="https://airtable.com/appzy3AxLJBSTbsHz/pagbcBniFMo6sp34j/form"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block font-sans text-sm text-blue-600 underline underline-offset-4 mb-8"
+            className="inline-block font-sans text-sm text-black hover:text-black/60 transition-colors underline underline-offset-4 mb-8"
           >
             Sign up to commit to making Meta a better place for all of us →
           </a>

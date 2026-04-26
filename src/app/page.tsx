@@ -266,7 +266,7 @@ export default function Home() {
       </div>
 
       {/* ── Mobile CTA (top) ── */}
-      <div className="md:hidden bg-white py-12 px-6">
+      <div className="md:hidden bg-white min-h-[50vh] px-6 flex flex-col justify-center">
         <h2 className="font-serif font-black text-3xl text-black leading-tight mb-6">
           It doesn't have to be like this.
         </h2>
