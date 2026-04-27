@@ -40,10 +40,10 @@ export default function RootLayout({
         <footer className="bg-white border-t border-black/10 py-8 px-6">
           <div className="max-w-5xl mx-auto flex flex-col items-center gap-4">
             <a
-              href="mailto:metaemployeesforchange@gmail.com"
+              href="mailto:metaworkersforchange@gmail.com"
               className="font-sans text-xs text-black hover:text-black/60 transition-colors"
             >
-              metaemployeesforchange@gmail.com
+              metaworkersforchange@gmail.com
             </a>
             <a
               href="https://www.instagram.com/metaworkers4change/"

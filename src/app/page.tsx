@@ -64,7 +64,7 @@ function getInitialPositions(cards: CardData[]): { positions: Record<string, { x
         if (top < bestTop) { bestTop = top; bestPair = c; }
       }
       const petH =
-        Math.round(PETITION_W * (card.image === "/iceoutmetaflyer.png" ? 2048 / 1536 : 1024 / 790)) + 40;
+        Math.round(PETITION_W * (card.image === "/iceoutmetaflyer.jpeg" ? 2048 / 1536 : 1024 / 790)) + 40;
       positions[card.url] = { x: colX[bestPair] + dx, y: bestTop + dy };
       colH[bestPair] = bestTop + petH + ROW_GAP;
       colH[bestPair + 1] = bestTop + petH + ROW_GAP;
