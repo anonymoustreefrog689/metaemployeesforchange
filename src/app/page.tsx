@@ -158,7 +158,30 @@ export default function Home() {
     setZOrder((prev) => [...prev.filter((u) => u !== card.url), card.url]);
   };
 
-  const sortedForMobile = [...INITIAL_CARDS].sort((a, b) => b.date.localeCompare(a.date));
+  const sortedForMobile = (() => {
+    const sorted = [...INITIAL_CARDS].sort((a, b) => b.date.localeCompare(a.date));
+    // Mobile-only: ensure no single article is orphaned before a petition.
+    // If an odd number of articles precede a petition, move the last one to after it.
+    const result: CardData[] = [];
+    let articleCount = 0;
+    for (const card of sorted) {
+      if (card.type === "petition") {
+        if (articleCount % 2 !== 0 && result.length > 0) {
+          const orphan = result.pop()!;
+          result.push(card);
+          result.push(orphan);
+          articleCount = 1;
+        } else {
+          result.push(card);
+          articleCount = 0;
+        }
+      } else {
+        result.push(card);
+        articleCount++;
+      }
+    }
+    return result;
+  })();
 
   return (
     <main className="min-h-screen bg-white text-black">
